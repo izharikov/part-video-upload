@@ -26,19 +26,29 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="README.MD" pinned="false" current-in-tab="true">
+          <file leaf-file-name="README.MD" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/README.MD">
               <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
                 <state split_layout="SPLIT">
-                  <first_editor relative-caret-position="102">
-                    <caret line="6" column="12" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="120" />
+                  <first_editor relative-caret-position="85">
+                    <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
                     <folding>
-                      <marker date="1504867038900" expanded="true" signature="704:760" ph="{...}" />
-                      <marker date="1504867038900" expanded="true" signature="1216:1336" ph="{...}" />
-                      <marker date="1504867038900" expanded="true" signature="1496:1625" ph="{&quot;fileName&quot;: &quot;firstFile-2.txt&quot;...}" />
+                      <marker date="1504867128174" expanded="true" signature="706:762" ph="{...}" />
+                      <marker date="1504867128174" expanded="true" signature="1218:1338" ph="{...}" />
+                      <marker date="1504867128174" expanded="true" signature="1498:1627" ph="{&quot;fileName&quot;: &quot;firstFile-2.txt&quot;...}" />
                     </folding>
                   </first_editor>
                   <second_editor />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/pom.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1100">
+                  <caret line="73" column="38" lean-forward="true" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -104,7 +114,7 @@
           <file leaf-file-name="VideoRestController.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/com/video/upload/rest/VideoRestController.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="239">
+                <state relative-caret-position="355">
                   <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="32" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -939,7 +949,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="SearchEverywhereHistoryKey" value="pom.&#9;FILE&#9;file:///home/igor/university/5th/part-video-upload/server/pom.xml&#10;mvn&#9;FILE&#9;file:///home/igor/university/5th/part-video-upload/server/mvnw" />
+    <property name="SearchEverywhereHistoryKey" value="pom.xml&#9;FILE&#9;file:///home/igor/university/5th/part-video-upload/server/pom.xml&#10;pom.&#9;FILE&#9;file:///home/igor/university/5th/part-video-upload/server/pom.xml&#10;mvn&#9;FILE&#9;file:///home/igor/university/5th/part-video-upload/server/mvnw" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1429,10 +1439,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23576000" />
+    <option name="totallyTimeSpent" value="25260000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-11" width="1368" height="780" extended-state="6" />
+    <frame x="-1" y="-11" width="1368" height="780" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1456,8 +1466,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42628205" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42628205" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1397281" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48076922" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19108762" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852563" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1698,14 +1708,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="52" column="20" lean-forward="true" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/io/InputStream.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="131">
@@ -1810,7 +1812,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/video/upload/rest/VideoRestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
+        <state relative-caret-position="355">
           <caret line="98" column="32" lean-forward="false" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1823,15 +1825,23 @@
     <entry file="file://$PROJECT_DIR$/README.MD">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="102">
-            <caret line="6" column="12" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="52" selection-end-column="120" />
+          <first_editor relative-caret-position="85">
+            <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
             <folding>
-              <marker date="1504867038900" expanded="true" signature="704:760" ph="{...}" />
-              <marker date="1504867038900" expanded="true" signature="1216:1336" ph="{...}" />
-              <marker date="1504867038900" expanded="true" signature="1496:1625" ph="{&quot;fileName&quot;: &quot;firstFile-2.txt&quot;...}" />
+              <marker date="1504867128174" expanded="true" signature="706:762" ph="{...}" />
+              <marker date="1504867128174" expanded="true" signature="1218:1338" ph="{...}" />
+              <marker date="1504867128174" expanded="true" signature="1498:1627" ph="{&quot;fileName&quot;: &quot;firstFile-2.txt&quot;...}" />
             </folding>
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="73" column="38" lean-forward="true" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
