@@ -11,7 +11,7 @@ import java.security.NoSuchAlgorithmException;
  */
 @Component
 public class CryptoService {
-    private MessageDigest messageDigest;
+    private final MessageDigest messageDigest;
 
     @Autowired
     public CryptoService(ServiceConfiguration serviceConfiguration) throws NoSuchAlgorithmException{
@@ -23,8 +23,11 @@ public class CryptoService {
     }
 
     public String hash(byte[] bytes){
-        messageDigest.update(bytes);
-        byte[] byteResult = messageDigest.digest();
+        byte[] byteResult;
+        synchronized (messageDigest) {
+            messageDigest.update(bytes);
+            byteResult = messageDigest.digest();
+        }
         StringBuilder strb = new StringBuilder();
         for (byte b : byteResult){
             strb.append(Integer.toString((b & 0xff) + 0x100, 16).substring(1));
