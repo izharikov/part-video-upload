@@ -1,1 +1,47 @@
-<h1>Hello, world!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video uploader</title>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-theme.css">
+
+    <script src="js/fileUploader.js"> </script>
+</head>
+
+<body>
+
+<div id="userContentContainer" style="margin-top: 90px">
+    <div class="container noselect">
+
+        <!-- Upload the document -->
+        <div id="uploadDocBlock">
+            <form id="formUploadVideo">
+                <input id="inputVideo" type="file" data-btnClass="btn-primary"
+                       class="filestyle" data-buttonBefore="true">
+            </form>
+
+            <h3><p></p></h3>
+
+            <div id="uploadButton" onclick="uploadModel.uploadDocument()"
+                 class="btn btn-success" style="width: 200px">
+                <span class="glyphicon glyphicon-upload"></span>
+                Upload
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var uploadModel = new UploadModel();
+</script>
+
+<script src="assets/jquery/js/jquery-3.2.1.min.js"></script>
+<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap-filestyle.min.js"> </script>
+<script type="text/javascript" src="assets/filesaver/FileSaver.min.js"> </script>
+</body>
+</html>
