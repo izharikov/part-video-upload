@@ -1,16 +1,14 @@
 package com.video.upload.rest;
 
 import com.video.upload.rest.models.CombineFileModel;
-import com.video.upload.rest.models.FileHashModel;
 import com.video.upload.service.CryptoService;
 import com.video.upload.service.FilesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,19 +42,22 @@ public class VideoRestController {
         return result;
     }
 
-    @PostMapping(value = "/upload",
-            consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public Map upload(@RequestBody FileHashModel fileHashModel) {
+    @PostMapping("/upload")
+    public Map upload(
+            @RequestParam MultipartFile file,
+            @RequestParam String expectedHash) {
         byte[] fileBytes;
         try {
-            fileBytes = fileHashModel.getFile().getBytes();
+            fileBytes = file.getBytes();
         } catch (IOException e) {
             LOGGER.error(e.getMessage(), e);
             return RESULT_ERROR;
         }
         String realHash = cryptoService.hash(fileBytes);
         boolean success = false;
-        if (realHash.equals(fileHashModel.getHash())) {
+        LOGGER.info(realHash);
+        LOGGER.info(expectedHash);
+        if (realHash.equals(expectedHash)) {
             success = filesService.uploadPartFile(realHash, fileBytes);
         }
         return success ? RESULT_SUCCESS : RESULT_ERROR;
