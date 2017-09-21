@@ -24,8 +24,8 @@ function UploadModel() {
     };
 
 
-    self.findHash = function (text) {
-        sha256(text)
+    self.findHash = function (buffer, blob) {
+        sha256(new Uint8Array(buffer))
             .then(function (hash) {
                 console.log(hash);
                 var formData = new FormData();
@@ -38,9 +38,9 @@ function UploadModel() {
     self.readBlobAndSendRequests = function (blob) {
         var reader = new FileReader();
         reader.onload = function(e) {
-            self.findHash(e.target.result);
+            self.findHash(e.target.result, blob);
         };
-        reader.readAsText(blob);
+        reader.readAsArrayBuffer(blob);
     };
 
     self.sliceFileAndSendRequests = function(file) {

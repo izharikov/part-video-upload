@@ -1,15 +1,16 @@
 package com.video.upload.rest;
 
+import com.video.common.CommonUtils;
 import com.video.upload.rest.models.CombineFileModel;
 import com.video.upload.service.CryptoService;
 import com.video.upload.service.FilesService;
+import com.video.upload.service.StreamingService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.annotation.MultipartConfig;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,11 +29,16 @@ public class VideoRestController {
 
     private FilesService filesService;
     private CryptoService cryptoService;
+    private StreamingService streamingService;
 
     @Autowired
-    public VideoRestController(FilesService filesService, CryptoService cryptoService) {
+    public VideoRestController(
+            FilesService filesService,
+            CryptoService cryptoService,
+            StreamingService streamingService) {
         this.filesService = filesService;
         this.cryptoService = cryptoService;
+        this.streamingService = streamingService;
     }
 
     @GetMapping("/test")
@@ -102,5 +108,11 @@ public class VideoRestController {
     @GetMapping("/list-all-parts")
     public List<String> listAllParts(){
         return filesService.listAllParts();
+    }
+
+    @GetMapping("/video/start")
+    public Map startStream(@RequestParam("videoFile") String videoFile){
+        streamingService.startStreaming(videoFile);
+        return mapOf("url", "http://localhost/hls/" + CommonUtils.removeSymbols(videoFile) + ".m3u8");
     }
 }

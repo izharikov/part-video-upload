@@ -19,4 +19,8 @@ public final class CommonUtils {
         }
         return result;
     }
+
+    public static String removeSymbols(String src){
+        return src.replaceAll("\\W+", "-");
+    }
 }
