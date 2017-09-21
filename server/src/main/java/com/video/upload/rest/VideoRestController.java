@@ -61,7 +61,7 @@ public class VideoRestController {
             return RESULT_ERROR;
         }
         String realHash = cryptoService.hash(fileBytes);
-        LOGGER.info("real     = "  + realHash);
+        LOGGER.info("real     = " + realHash);
         LOGGER.info("expected = " + expectedHash);
         boolean success = false;
         if (realHash.equals(expectedHash)) {
@@ -90,7 +90,7 @@ public class VideoRestController {
     }
 
     @PostMapping("/combine")
-    public Map combinePartsToFile(@RequestBody CombineFileModel combineFileModel){
+    public Map combinePartsToFile(@RequestBody CombineFileModel combineFileModel) {
         try {
             filesService.combinePartsToFile(combineFileModel.getHashes(), combineFileModel.getFileName());
         } catch (IOException e) {
@@ -101,18 +101,19 @@ public class VideoRestController {
     }
 
     @GetMapping("/list-all-files")
-    public List<String> listAllFiles(){
+    public List<String> listAllFiles() {
         return filesService.listAllFiles();
     }
 
     @GetMapping("/list-all-parts")
-    public List<String> listAllParts(){
+    public List<String> listAllParts() {
         return filesService.listAllParts();
     }
 
     @GetMapping("/video/start")
-    public Map startStream(@RequestParam("videoFile") String videoFile){
-        streamingService.startStreaming(videoFile);
-        return mapOf("url", "http://localhost/hls/" + CommonUtils.removeSymbols(videoFile) + ".m3u8");
+    public Map startStream(@RequestParam("videoFile") String videoFile) {
+        boolean start = streamingService.startStreaming(videoFile);
+        return mapOf("url", "http://localhost/hls/" + CommonUtils.removeSymbols(videoFile) + ".m3u8",
+                "start", start);
     }
 }

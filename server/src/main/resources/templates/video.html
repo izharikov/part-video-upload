@@ -18,16 +18,26 @@
     }
     $.ajax({
         url: '/video/start?videoFile=' + getUrlParameter('name')
-    }).then(function(data){
+    }).then(function (data) {
         console.log('data', data);
-        if(Hls.isSupported()) {
-            var video = document.getElementById('video');
-            var hls = new Hls();
-            hls.loadSource('http://localhost/hls/video-mp4.m3u8');
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED,function() {
-                video.play();
-            });
+        if (Hls.isSupported()) {
+            if (!data.start) {
+                load(data.url);
+            } else {
+                setTimeout(function () {
+                    load(data.url);
+                }, 2500)
+            }
         }
-    })
+    });
+
+    function load(url) {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource(url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function () {
+            video.play();
+        });
+    }
 </script>
