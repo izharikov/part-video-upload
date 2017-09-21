@@ -1,7 +1,13 @@
 function UploadModel() {
 
     var self = this;
+
+    // sizeBlock - 4 MB
+    var sizeBlock = 4194304;
     var urlUpload = "/upload";
+    var urlCombineParts = "/combine";
+    var checkSinglePartExist = "/check-single-part-exists";
+    var checkPartsExist = "/check-parts-exists";
 
     self.sendRequestUpload = function (formData) {
         $.ajax({
@@ -10,30 +16,55 @@ function UploadModel() {
             type: 'POST',
             contentType: false,
             processData: false,
-            success: function (data) {
-                document.getElementById("formUploadVideo").reset();
-                alert(data["message"]);
-            },
+            success: function (data) {},
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(textStatus + ': ' + errorThrown);
             }
         });
     };
 
-    self.getFormDataAndPostRequest = function (inputFile) {
+
+    self.findHash = function (text) {
+        sha256(text)
+            .then(function (hash) {
+                console.log(hash);
+                var formData = new FormData();
+                formData.append('file', blob);
+                formData.append('expectedHash', hash);
+                self.sendRequestUpload(formData);
+            });
+    };
+
+    self.readBlobAndSendRequests = function (blob) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            self.findHash(e.target.result);
+        };
+        reader.readAsText(blob);
+    };
+
+    self.sliceFileAndSendRequests = function(file) {
+        for(var i = 0; i < file.size; i+=sizeBlock) {
+            var blob;
+            if(i+sizeBlock <= file.size) {
+                blob = file.slice(i, i + sizeBlock);
+            } else {
+                blob = file.slice(i, file.size);
+            }
+            self.readBlobAndSendRequests(blob);
+        }
+    };
+
+    self.getFormDataAndSendFile = function () {
         var file = $('#inputVideo');
         if (!file.val()) {
             event.preventDefault();
             alert("Please choose a document!");
         } else {
-            var formData = new FormData();
-            formData.append('file', file.get(0).files[0]);
-            sha256(file.get(0).files[0])
-                .then(function (hash) {
-                    console.log(hash);
-                    formData.append('expectedHash', hash);
-                    self.sendRequestUpload(formData);
-                });
+            self.sliceFileAndSendRequests(file.get(0).files[0]);
         }
     };
+
+
+
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.annotation.MultipartConfig;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -54,9 +55,9 @@ public class VideoRestController {
             return RESULT_ERROR;
         }
         String realHash = cryptoService.hash(fileBytes);
+        LOGGER.info("real     = "  + realHash);
+        LOGGER.info("expected = " + expectedHash);
         boolean success = false;
-        LOGGER.info(realHash);
-        LOGGER.info(expectedHash);
         if (realHash.equals(expectedHash)) {
             success = filesService.uploadPartFile(realHash, fileBytes);
         }
