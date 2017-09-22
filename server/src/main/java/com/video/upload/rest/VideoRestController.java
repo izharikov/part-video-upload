@@ -61,8 +61,6 @@ public class VideoRestController {
             return RESULT_ERROR;
         }
         String realHash = cryptoService.hash(fileBytes);
-        LOGGER.info("real     = "  + realHash);
-        LOGGER.info("expected = " + expectedHash);
         boolean success = false;
         if (realHash.equals(expectedHash)) {
             success = filesService.uploadPartFile(realHash, fileBytes);

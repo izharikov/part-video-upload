@@ -1,7 +1,6 @@
 function sha256 (buffer) {
     // var buffer = new TextEncoder("utf-8").encode(str);
     return crypto.subtle.digest("SHA-256", buffer).then(function (hash) {
-        console.log('sha : ', hash)
         return hex(hash);
     });
 }
