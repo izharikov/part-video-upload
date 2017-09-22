@@ -115,5 +115,10 @@ public class VideoRestController {
         boolean start = streamingService.startStreaming(videoFile);
         return mapOf("url", "http://localhost/hls/" + CommonUtils.removeSymbols(videoFile) + ".m3u8",
                 "start", start);
+    public List<String> listAllParts() {
+    public Map startStream(@RequestParam("videoFile") String videoFile) {
+        boolean start = streamingService.startStreaming(videoFile);
+        return mapOf("url", "http://localhost/hls/" + CommonUtils.removeSymbols(videoFile) + ".m3u8",
+                "start", start);
     }
 }
