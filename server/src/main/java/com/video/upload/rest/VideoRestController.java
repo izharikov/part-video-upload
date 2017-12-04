@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,12 +40,9 @@ public class VideoRestController {
         this.streamingService = streamingService;
     }
 
-    @GetMapping("/test")
-    public Map<String, String> test() {
-        Map<String, String> result = new HashMap<>();
-        result.put("test", "test");
-        result.put("test1", "test2");
-        return result;
+    @PostMapping("/check-single-part-exists")
+    public Map fileExists(@RequestBody Map<String, String> body) {
+        return filesService.partFileExists(body.get("hashOfFile")) ? RESULT_SUCCESS : RESULT_ERROR;
     }
 
     @PostMapping("/upload")
@@ -68,11 +64,6 @@ public class VideoRestController {
             success = filesService.uploadPartFile(realHash, fileBytes);
         }
         return success ? RESULT_SUCCESS : RESULT_ERROR;
-    }
-
-    @PostMapping("/check-single-part-exists")
-    public Map fileExists(@RequestBody Map<String, String> body) {
-        return filesService.partFileExists(body.get("hashOfFile")) ? RESULT_SUCCESS : RESULT_ERROR;
     }
 
     @PostMapping("/check-parts-exists")
@@ -113,12 +104,7 @@ public class VideoRestController {
     @GetMapping("/video/start")
     public Map startStream(@RequestParam("videoFile") String videoFile) {
         boolean start = streamingService.startStreaming(videoFile);
-        return mapOf("url", "http://localhost/hls/" + CommonUtils.removeSymbols(videoFile) + ".m3u8",
-                "start", start);
-    public List<String> listAllParts() {
-    public Map startStream(@RequestParam("videoFile") String videoFile) {
-        boolean start = streamingService.startStreaming(videoFile);
-        return mapOf("url", "http://localhost/hls/" + CommonUtils.removeSymbols(videoFile) + ".m3u8",
+        return mapOf("url", "hls/" + CommonUtils.removeSymbols(videoFile) + ".m3u8",
                 "start", start);
     }
 }

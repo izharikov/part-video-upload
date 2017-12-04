@@ -1,4 +1,4 @@
-<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<script src="/assets/hls.js"></script>
 <script src="/assets/jquery/js/jquery-3.2.1.min.js"></script>
 <video id="video"></video>
 <script>
@@ -22,10 +22,10 @@
         console.log('data', data);
         if (Hls.isSupported()) {
             if (!data.start) {
-                load(data.url);
+                load('http://localhost/' + data.url);
             } else {
                 setTimeout(function () {
-                    load(data.url);
+                    load('http://localhost/' + data.url);
                 }, 2500)
             }
         }

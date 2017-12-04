@@ -7,7 +7,7 @@
 <body>
 <ul th:each="video : ${videos}">
     <li>
-        <a th:text="${video}" th:href="@{/src/video(name=${video})}"/>
+        <a th:text="${video}" th:href="@{/video(name=${video})}"/>
     </li>
 </ul>
 </body>

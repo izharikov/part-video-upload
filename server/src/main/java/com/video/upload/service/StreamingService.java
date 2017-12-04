@@ -31,17 +31,19 @@ public class StreamingService {
         }
 
         String fileName = new File(serviceConfiguration.getSaveDir() + videoFile).getAbsolutePath();
-        Process process = null;
-        try {
-            String cmdline = MessageFormat.format(streamingConfiguration.getFfmpegCommand(), fileName, streamFileName);
-            process =
-                    new ProcessBuilder(new String[]{"bash", "-c", cmdline})
-                            .start();
-            System.out.println("Started streaming of " + fileName);
-            process.waitFor();
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
+        new Thread(() -> {
+            try {
+                Process process = null;
+                String cmdline = MessageFormat.format(streamingConfiguration.getFfmpegCommand(), fileName, streamFileName);
+                process =
+                        new ProcessBuilder(new String[]{"bash", "-c", cmdline})
+                                .start();
+                System.out.println("Started streaming of " + fileName);
+                process.waitFor();
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
         return true;
     }
 }
