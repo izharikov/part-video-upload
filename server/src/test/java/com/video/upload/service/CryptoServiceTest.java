@@ -49,7 +49,7 @@ public class CryptoServiceTest {
     public String expectedHash;
 
     @Test
-    public void test() {
+    public void hashIsValid() {
         assertTrue(expectedHash.equalsIgnoreCase(cryptoService.hash(inputString.getBytes())));
     }
 }

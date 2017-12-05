@@ -10,7 +10,7 @@ target/
 .springBeans
 
 ### IntelliJ IDEA ###
-#.idea
+.idea
 .idea/workspace.xml
 .idea/libraries/
 *.iws
